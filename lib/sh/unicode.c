@@ -159,14 +159,6 @@ u32cconv (c, s)
 
   wc = c;
 
-#if __STDC_ISO_10646__
-  if (sizeof (wchar_t) == 4)
-    {
-      n = wctomb (s, wc);
-      return n;
-    }
-#endif
-
 #if HAVE_NL_LANGINFO
   codeset = nl_langinfo (CODESET);
   if (STREQ (codeset, "UTF-8"))
